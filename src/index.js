@@ -1,5 +1,6 @@
-import {getRules} from './helpers'
 import innerValidate from './validate'
+import {getRules} from './helpers'
+export {default as validators, registValidator} from './validator'
 export * from './decorators'
 export function validate(...args) {
     let target = args[0]
@@ -9,3 +10,4 @@ export function validate(...args) {
         return innerValidate(getRules(target), target)
     }
 }
+export {getRules}

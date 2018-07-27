@@ -1,6 +1,4 @@
 import validator from './validator'
-import validate from './validate'
-import {getRules} from './helpers'
 
 export const decorators = {}
 
@@ -14,8 +12,9 @@ const defaultRule = {
     message: 'valid fail',
     fn: () => true
 }
-export function createDecorator(rule = defaultRule) {
+export function createDecorator(_rule = defaultRule) {
     return function (args) {
+        let rule = Object.create(_rule)
         if (typeof args === 'string') {
             rule.message = args || 'valid fail'
         } else {
@@ -29,14 +28,6 @@ export function createDecorator(rule = defaultRule) {
                     configurable: false,
                     writable: false,
                     value: Object.create(null)
-                })
-                Object.defineProperty(target, '$validate', {
-                    enumerable: false,
-                    configurable: false,
-                    writable: false,
-                    value() {
-                        return validate(getRules(target), target)
-                    }
                 })
             }
             if (target.__rules[property]) {

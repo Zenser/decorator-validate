@@ -4,9 +4,9 @@
   "description": "A pure, extendable, very useful validator base Promise and Decorator",
   "main": "dist/decorator-validate.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build/build.js",
-    "dev": "node build/dev.js"
+    "dev": "node build/dev.js",
+    "test": "mocha --require babel-register ./test/*.js"
   },
   "repository": {
     "type": "git",
@@ -29,8 +29,10 @@
     "babel-core": "^6.26.3",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "browser-sync": "^2.24.5",
     "minify": "^3.0.5",
+    "mocha": "^5.2.0",
     "rollup": "^0.61.1",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-node-resolve": "^3.3.0",

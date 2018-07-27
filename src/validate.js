@@ -45,7 +45,7 @@ function validItem(rule, value) {
         (value == null ||
             value === '' ||
             (Array.isArray(value) && !value.length))
-    ) {
+    ) {        
         result = false
     } else if (!rule.fn) {
         result = true
